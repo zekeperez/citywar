@@ -45,7 +45,7 @@ public class BuildingManager : MonoBehaviour
             Vector3 dir = buildingTransform.position - cam.transform.position;
             Ray ray = new Ray(buildingTransform.position, dir);
             float distance = Vector3.Distance(buildingTransform.position, cam.transform.position);
-            Vector3 offset = ray.GetPoint(distance / 3);
+            Vector3 offset = ray.GetPoint(1f);
 
             cam.targetOffset = offset;
 
@@ -74,14 +74,13 @@ public class BuildingManager : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W))
             {
-                setCameraTarget(null);
+                removeBuilding();
             }
         }
 
         
     }
 
-    //note: to completely nullify locally, use setCameraTarget(null);
     public void removeBuilding() //called from buildingclick.cs
     {
         cam.gameObject.transform.rotation = 
