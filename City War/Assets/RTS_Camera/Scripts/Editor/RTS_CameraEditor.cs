@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace RTS_Cam
-{
     [CustomEditor(typeof(RTS_Camera))]
     public class RTS_CameraEditor : Editor
     {
@@ -155,4 +153,3 @@ namespace RTS_Cam
             }  
         }
     }
-}

@@ -13,6 +13,10 @@ public class BuildingMat : MonoBehaviour
     {
         ren = GetComponent<Renderer>();
 
+    }
+
+    private void Start()
+    {
         setupMats();
     }
 

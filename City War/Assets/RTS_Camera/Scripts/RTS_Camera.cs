@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace RTS_Cam
-{
+
     [RequireComponent(typeof(Camera))]
     [AddComponentMenu("RTS Camera")]
     public class RTS_Camera : MonoBehaviour
@@ -341,4 +340,3 @@ namespace RTS_Cam
 
         #endregion
     }
-}

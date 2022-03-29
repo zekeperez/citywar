@@ -13,9 +13,14 @@ public class BuildingClick : MonoBehaviour
     Outline outline;
     Color outlineColor;
 
+    RTS_Camera cam;
+
     private void Awake()
     {
-        
+        outline = GetComponent<Outline>();
+        toggleOutline(false);
+
+        cam = FindObjectOfType<RTS_Camera>();
     }
 
     private void Start()
@@ -26,7 +31,6 @@ public class BuildingClick : MonoBehaviour
         gm = GameManager.instance;
 
         //outline.enabled = false;
-        toggleOutline(true);
     }
 
     private void OnMouseDown()
@@ -63,7 +67,7 @@ public class BuildingClick : MonoBehaviour
 
     public void toggleOutline(bool val)
     {
-
+        outline.enabled = val;
     }
 
     public void setOutlineColor(Color newColor)
