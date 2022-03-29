@@ -5,7 +5,12 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager instance;
+
     BuildingClick activeBuilding;
+
+    //orbit
+    bool orbit = false;
+    float orbitSpeed = 3f;
 
     RTS_Camera cam;
     Camera mainCam;
@@ -45,23 +50,45 @@ public class BuildingManager : MonoBehaviour
             cam.targetOffset = offset;
 
             mainCam.fieldOfView = 30;
+
+            Invoke("allowOrbit", 3f);
         }     
+    }
+
+    void allowOrbit()
+    {
+        cam.targetFollow = null;
+        orbit = true;
     }
 
     private void Update()
     {
-        if(cam.targetFollow != null)
+        if(activeBuilding != null)
         {
-            cam.transform.LookAt(cam.targetFollow);
+            cam.transform.LookAt(activeBuilding.transform.position);
+
+            if (orbit)
+            {
+                cam.transform.Translate(Vector3.right * Time.deltaTime * orbitSpeed);              
+            }
+
+            if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W))
+            {
+                setCameraTarget(null);
+            }
         }
+
+        
     }
 
-    public void removeBuilding()
+    //note: to completely nullify locally, use setCameraTarget(null);
+    public void removeBuilding() //called from buildingclick.cs
     {
         cam.gameObject.transform.rotation = 
             Quaternion.Euler(new Vector3(45, cam.gameObject.transform.rotation.y, cam.gameObject.transform.rotation.z));
 
         setCameraTarget(null);
         activeBuilding = null;
+        orbit = false;
     }
 }
