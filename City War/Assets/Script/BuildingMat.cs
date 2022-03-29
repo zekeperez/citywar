@@ -16,19 +16,6 @@ public class BuildingMat : MonoBehaviour
         setupMats();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            setMat("trapped");
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            setMat("captured");
-        }
-    }
-
     public void setMat(string state)
     {
         switch (state.ToLower())
