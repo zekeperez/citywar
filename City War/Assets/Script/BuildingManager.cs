@@ -23,6 +23,11 @@ public class BuildingManager : MonoBehaviour
         mainCam = Camera.main;
     }
 
+    private void Start()
+    {
+        Debug.Log("Total Houses: " + getTotalBuildingByType(Building.buildingTypes.House));
+    }
+
     public void overrideBuilding(BuildingClick newBuilding)
     {
         if(activeBuilding != null) activeBuilding.toggleOutline(false);
@@ -77,8 +82,6 @@ public class BuildingManager : MonoBehaviour
                 removeBuilding();
             }
         }
-
-        
     }
 
     public void removeBuilding() //called from buildingclick.cs
@@ -90,4 +93,22 @@ public class BuildingManager : MonoBehaviour
         activeBuilding = null;
         orbit = false;
     }
+
+    #region building counter
+    public int getTotalBuildingByType(Building.buildingTypes buildingType)
+    {
+        Building[] buildings = GameObject.FindObjectsOfType<Building>();
+        List<Building> totalBuildings = new List<Building>();
+
+        for(int i = 0; i < buildings.Length; i++)
+        {
+            if(buildings[i].getType() == buildingType && buildings[i].getState() == Building.buildingStates.Normal)
+            {
+                totalBuildings.Add(buildings[i]);
+            }
+        }
+
+        return totalBuildings.Count;
+    }
+    #endregion
 }

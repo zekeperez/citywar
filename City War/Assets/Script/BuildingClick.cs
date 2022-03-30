@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildingClick : MonoBehaviour
 {
@@ -35,8 +36,11 @@ public class BuildingClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (isClicked) { unclick(); isClicked = false; }
-        else { click(); isClicked = true;  }
+        if(IsPointerOverUIObject() == false)
+        {
+            if (isClicked) { unclick(); isClicked = false; }
+            else { click(); isClicked = true; }
+        }
     }
 
     void click()
@@ -73,5 +77,14 @@ public class BuildingClick : MonoBehaviour
     public void setOutlineColor(Color newColor)
     {
         outlineColor = newColor;
+    }
+
+    public bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }
