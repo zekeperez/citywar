@@ -20,6 +20,9 @@ public class Gov_Interface : MonoBehaviour
     public Text[] actionCounter;
     public Text[] targetCounter;
 
+    [Header("Information Panel")]
+    public Text moneyText;
+
     [Header("Pause")]
     public GameObject pauseParent;
     public GameObject pauseMenu;
@@ -95,4 +98,6 @@ public class Gov_Interface : MonoBehaviour
                 break;
         }
     }
+
+    public void setMoneyText(int amount) { moneyText.text = "Money: $" + amount.ToString(); }
 }

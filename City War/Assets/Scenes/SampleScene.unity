@@ -13699,6 +13699,7 @@ MonoBehaviour:
   - {fileID: 866560345}
   - {fileID: 974111219}
   - {fileID: 1886473235}
+  moneyText: {fileID: 860391766}
   pauseParent: {fileID: 1054574960}
   pauseMenu: {fileID: 1443281987}
   quitScreen: {fileID: 1349781576}

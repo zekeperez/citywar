@@ -50,6 +50,7 @@ public class Gov_Manager : MonoBehaviour
     public void applySalary()
     {
         money += getIncome();
+        ui.setMoneyText(money);
     }
 
     int getIncome()
