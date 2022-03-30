@@ -23,10 +23,6 @@ public class BuildingManager : MonoBehaviour
         mainCam = Camera.main;
     }
 
-    private void Start()
-    {
-        Debug.Log("Total Houses: " + getTotalBuildingByType(Building.buildingTypes.House));
-    }
 
     public void overrideBuilding(BuildingClick newBuilding)
     {
@@ -110,5 +106,18 @@ public class BuildingManager : MonoBehaviour
 
         return totalBuildings.Count;
     }
+    //public int getTotalPopulation()
+    //{
+    //    Building[] buildings = FindObjectsOfType<Building>();
+
+    //    int totalPopulation = 0;
+        
+    //    for(int i = 0; i < buildings.Length; i++)
+    //    {
+    //        totalPopulation += buildings[i].getPopulation();
+    //    }
+
+    //    return totalPopulation;
+    //}
     #endregion
 }

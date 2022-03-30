@@ -22,6 +22,7 @@ public class Gov_Interface : MonoBehaviour
 
     [Header("Information Panel")]
     public Text moneyText;
+    public Text populationText;
 
     [Header("Pause")]
     public GameObject pauseParent;
@@ -100,4 +101,5 @@ public class Gov_Interface : MonoBehaviour
     }
 
     public void setMoneyText(int amount) { moneyText.text = "Money: $" + amount.ToString(); }
+    public void setPopulationText(int amount) { populationText.text = "Population: " + amount.ToString(); }
 }
