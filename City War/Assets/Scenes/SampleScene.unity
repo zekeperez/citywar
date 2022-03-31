@@ -263,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &25089570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -403,6 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &25181994
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 3
+  population: 0
 --- !u!1 &34460528
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &96716111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1 &123310785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &182982197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1662,6 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &192027886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &256586532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2301,6 +2309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &270664974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2441,6 +2450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &271823979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,6 +2672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &281211648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &297470330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &318809176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3361,6 +3374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &325807037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3903,6 +3917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &401003451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,6 +4179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &410334885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4304,6 +4320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &424832235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4444,6 +4461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &426614401
 GameObject:
   m_ObjectHideFlags: 0
@@ -4744,6 +4762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &455498347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4884,6 +4903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &464606881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5024,6 +5044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &487168524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5164,6 +5185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &524202443
 GameObject:
   m_ObjectHideFlags: 0
@@ -5507,6 +5529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &546871272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5647,6 +5670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &552721987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5787,6 +5811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &561731320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5927,6 +5952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &583267419
 GameObject:
   m_ObjectHideFlags: 0
@@ -6146,6 +6172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &628791608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6286,6 +6313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &629165774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6426,6 +6454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &643141195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6566,6 +6595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &645564000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6706,6 +6736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &657995425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6846,6 +6877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &682357053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6986,6 +7018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &703044903
 GameObject:
   m_ObjectHideFlags: 0
@@ -7462,6 +7495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &711287526
 GameObject:
   m_ObjectHideFlags: 0
@@ -7681,6 +7715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &716710997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7821,6 +7856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &719420519
 GameObject:
   m_ObjectHideFlags: 0
@@ -8040,6 +8076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &761297427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8180,6 +8217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &762288973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8320,6 +8358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &784148224
 GameObject:
   m_ObjectHideFlags: 0
@@ -8539,6 +8578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &804427739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8679,6 +8719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &819622285
 GameObject:
   m_ObjectHideFlags: 0
@@ -9011,6 +9052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &854608352
 GameObject:
   m_ObjectHideFlags: 0
@@ -9745,6 +9787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &900648422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9885,6 +9928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &910908733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10025,6 +10069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &911535846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10165,6 +10210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &912152288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10305,6 +10351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &914152695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10445,6 +10492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &915275768
 GameObject:
   m_ObjectHideFlags: 0
@@ -10743,6 +10791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &922803684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10883,6 +10932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &941570094
 GameObject:
   m_ObjectHideFlags: 0
@@ -11384,6 +11434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1 &1033025991
 GameObject:
   m_ObjectHideFlags: 0
@@ -11622,6 +11673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1035431067
 GameObject:
   m_ObjectHideFlags: 0
@@ -12278,6 +12330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &1108205817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12418,6 +12471,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
+--- !u!1 &1108957804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108957805}
+  - component: {fileID: 1108957807}
+  - component: {fileID: 1108957806}
+  m_Layer: 0
+  m_Name: Ter_AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1108957805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108957804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1670.9766, y: 292.95093, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108957806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108957804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1e5a2c815f3904eb8e9a1f72738f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1108957807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108957804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754492819b450eb4898f1e2ecd99db46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
+  capturedHouseInc: 150
+  capturedCommercialInc: 250
+  capturedIndustrialInc: 500
+  strongholdInc: 750
+  bombPrice: 300
+  bombTrapPrice: 550
+  bombStorage: 0
+  bombTrapStorage: 0
 --- !u!1001 &1111568865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12558,6 +12677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1159161413
 GameObject:
   m_ObjectHideFlags: 0
@@ -12820,6 +12940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &1167322033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12960,6 +13081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &1172301327
 GameObject:
   m_ObjectHideFlags: 0
@@ -13222,6 +13344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1200829768
 GameObject:
   m_ObjectHideFlags: 0
@@ -13552,6 +13675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1262581304
 GameObject:
   m_ObjectHideFlags: 0
@@ -13700,6 +13824,7 @@ MonoBehaviour:
   - {fileID: 974111219}
   - {fileID: 1886473235}
   moneyText: {fileID: 860391766}
+  populationText: {fileID: 0}
   pauseParent: {fileID: 1054574960}
   pauseMenu: {fileID: 1443281987}
   quitScreen: {fileID: 1349781576}
@@ -13886,6 +14011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &1291374389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14026,6 +14152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1306807954
 GameObject:
   m_ObjectHideFlags: 0
@@ -14213,6 +14340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &1335442911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14353,6 +14481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1349781576
 GameObject:
   m_ObjectHideFlags: 0
@@ -14572,6 +14701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &1378097820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14712,6 +14842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1 &1390303758
 GameObject:
   m_ObjectHideFlags: 0
@@ -15013,6 +15144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1 &1443281987
 GameObject:
   m_ObjectHideFlags: 0
@@ -15231,6 +15363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1463454223
 GameObject:
   m_ObjectHideFlags: 0
@@ -15452,6 +15585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &1479662621
 GameObject:
   m_ObjectHideFlags: 0
@@ -15754,6 +15888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &1516565677
 GameObject:
   m_ObjectHideFlags: 0
@@ -15975,6 +16110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &1530536060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16115,6 +16251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &1537963801
 GameObject:
   m_ObjectHideFlags: 0
@@ -16415,6 +16552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &1551925267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16555,6 +16693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &1566190084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16695,6 +16834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &1585694295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16835,6 +16975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &1608540259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16975,6 +17116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &1620686530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17115,6 +17257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1001 &1623000211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17255,6 +17398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1630122969
 GameObject:
   m_ObjectHideFlags: 0
@@ -17516,6 +17660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 1
+  population: 0
 --- !u!1 &1646175115
 GameObject:
   m_ObjectHideFlags: 0
@@ -17737,6 +17882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &1674485434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17877,6 +18023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &1712488531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18017,6 +18164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1729708977
 GameObject:
   m_ObjectHideFlags: 0
@@ -18315,6 +18463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1 &1797283037
 GameObject:
   m_ObjectHideFlags: 0
@@ -18577,6 +18726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1001 &1842996996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18717,6 +18867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &1881546290
 GameObject:
   m_ObjectHideFlags: 0
@@ -19738,6 +19889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 2
+  population: 0
 --- !u!1001 &2010298445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19878,6 +20030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0
 --- !u!1 &2012365195
 GameObject:
   m_ObjectHideFlags: 0
@@ -20372,6 +20525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 3
+  population: 0
 --- !u!1 &2055142148
 GameObject:
   m_ObjectHideFlags: 0
@@ -20776,3 +20930,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   type: 0
+  population: 0

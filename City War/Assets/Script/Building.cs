@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    public enum buildingStates { Normal, Captured, Stronghold, Bombed }
+    public enum buildingStates { Normal, Captured, Stronghold, Bombed, Trapped, BombTrapped, Defended }
     public buildingStates state;
 
     public enum buildingTypes { House, Commercial, Industrial, Special }

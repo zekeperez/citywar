@@ -106,6 +106,40 @@ public class BuildingManager : MonoBehaviour
 
         return totalBuildings.Count;
     }
+
+    public int getTotalBuildingByState(Building.buildingStates buildingState)
+    {
+        Building[] buildings = GameObject.FindObjectsOfType<Building>();
+        List<Building> totalBuildings = new List<Building>();
+
+        for (int i = 0; i < buildings.Length; i++)
+        {
+            if (buildings[i].getState() == buildingState)
+            {
+                totalBuildings.Add(buildings[i]);
+            }
+        }
+
+        return totalBuildings.Count;
+    }
+
+    public int getTotalBuildingByTypeAndState(Building.buildingTypes buildingType, Building.buildingStates buildingState)
+    {
+        Building[] buildings = GameObject.FindObjectsOfType<Building>();
+        List<Building> totalBuildings = new List<Building>();
+
+        for (int i = 0; i < buildings.Length; i++)
+        {
+            if (buildings[i].getType() == buildingType && buildings[i].getState() == buildingState)
+            {
+                totalBuildings.Add(buildings[i]);
+            }
+        }
+
+        return totalBuildings.Count;
+    }
+
+
     //public int getTotalPopulation()
     //{
     //    Building[] buildings = FindObjectsOfType<Building>();
