@@ -17,8 +17,12 @@ public class Building : MonoBehaviour
     public int population;
     public int getPopulation() { return population; }
 
+    BuildingMat mat;
+
     private void Awake()
     {
+        mat = GetComponent<BuildingMat>();
+
         //set population
         switch (type)
         {
@@ -38,5 +42,17 @@ public class Building : MonoBehaviour
                 population = Random.Range(10, 1000);
                 break;
         }
+    }
+
+    public void bombBuilding()
+    {
+        setState(buildingStates.Bombed);
+        mat.setMat("bombed");
+    }
+
+    public void resetBuilding()
+    {
+        setState(buildingStates.Normal);
+        mat.setMat("normal");
     }
 }

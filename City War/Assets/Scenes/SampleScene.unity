@@ -14198,7 +14198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ccc7d17148330746ace60a619b6d179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayCounterText: {fileID: 0}
+  dayCounterText: {fileID: 1912905661}
 --- !u!1 &1306807954
 GameObject:
   m_ObjectHideFlags: 0

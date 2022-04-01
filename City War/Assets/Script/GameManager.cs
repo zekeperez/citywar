@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //turn
-        govTurn = true;
+        govTurn = false;
         terStart();
 
         //day counter
@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
             if (spIsGov)
             {
                 terEnemy.chooseStronghold();
+                govPlayer.setState(Gov_Player.playerStates.Shopping);
+                govManager.startShop();
             }
             else
             {
@@ -59,8 +61,8 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Multiplayer is not implemented yet.");
         }
 
-        flipTurn();
-        startTurn();
+        //flipTurn();
+        //startTurn();
     }
 
     public void startTurn()
@@ -133,7 +135,31 @@ public class GameManager : MonoBehaviour
     {
         govInterface.triggerHeaderPerm("The day is ending...");
         Debug.Log("Animations will play here.");
-        yield return new WaitForSeconds(10);
+
+        if (singlePlayer)
+        {
+            if (spIsGov)
+            {
+                #region Government
+                //List<Building> govBombTargets
+                #endregion
+
+                #region Terrorist
+                List<Building> terBombTargets = terEnemy.getBombTargets();
+                for(int i = 0; i < terBombTargets.Count; i++) { terBombTargets[i].bombBuilding(); }
+                #endregion
+            }
+            else
+            {
+                Debug.LogError("Terrorist Player is not implemented yet.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Multiplayer is not implemented yet.");
+        }
+
+        yield return new WaitForSeconds(5);
         flipTurn();
         startTurn();
         yield return null;

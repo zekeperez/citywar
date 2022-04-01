@@ -19,7 +19,10 @@ public class Ter_Enemy : MonoBehaviour
     public int bombStorage;
     public int bombTrapStorage;
 
+    //Targets
     AutomatedTargetTerrorist targeting;
+    List<Building> bombTargets = new List<Building>();
+    List<Building> trapTargets = new List<Building>();
 
     private void Awake()
     {
@@ -31,8 +34,8 @@ public class Ter_Enemy : MonoBehaviour
     {
         Debug.Log("TER_AI: Starting Turn (" + isTurn + ")");
         applySalary();
-        //if (isTurn) { automateTurn(); }
-        //else { automateShopping(); }
+        if (isTurn) { automateTurn(); }
+        else { automateShopping(); }
 
         endTurn();
         //Invoke("endTurn", Random.Range(3, 5));
@@ -46,7 +49,8 @@ public class Ter_Enemy : MonoBehaviour
 
     void automateTurn()
     {
-        int rand = Random.Range(0, 6);
+        int rand = Random.Range(0, 2);
+        Debug.Log("TER_AI: Playing - " + rand);
 
         switch (rand)
         {
@@ -163,7 +167,8 @@ public class Ter_Enemy : MonoBehaviour
 
     void automateShopping()
     {
-        int randAction = Random.Range(0, 4);
+        int randAction = Random.Range(0, 2);
+        Debug.Log("TER_AI: Shopping - " + randAction);
 
         switch (randAction)
         {
@@ -198,7 +203,15 @@ public class Ter_Enemy : MonoBehaviour
         //GameManager.instance.endTurn();
     }
 
+    public List<Building> getBombTargets() { return bombTargets; }
 
+    public List<Building> getTrapTargets() { return trapTargets; }
+
+    public void resetTargetList()
+    {
+        for(int i = 0; i < bombTargets.Count; i++) { bombTargets.RemoveAt(0); }
+        for(int i = 0; i < trapTargets.Count; i++) { trapTargets.RemoveAt(0); }
+    }
 
 
     #region AI actions
@@ -206,22 +219,42 @@ public class Ter_Enemy : MonoBehaviour
     #region action
     void useAllBombs(Building.buildingTypes type)
     {
-
+        while(bombStorage > 0)
+        {
+            useSingleBomb(type);
+        }
     }
 
     void useAllBombs()
     {
-
+        while (bombStorage > 0)
+        {
+            useSingleBomb();
+        }
     }
 
     void useSingleBomb(Building.buildingTypes type)
     {
+        if(bombStorage > 0)
+        {
+            Building targetBuilding = targeting.getSingleTargetByType(type);
+            bombTargets.Add(targetBuilding);
+            //targetBuilding.bombBuilding();
 
+            bombStorage--;
+        }     
     }
 
     void useSingleBomb()
     {
+        if (bombStorage > 0)
+        {
+            Building targetBuilding = targeting.getSingleRandomBuilding();
+            bombTargets.Add(targetBuilding);
+            //targetBuilding.bombBuilding();
 
+            bombStorage--;
+        }
     }
 
     void useAllTraps()
