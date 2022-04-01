@@ -16,12 +16,17 @@ public class BuildingClick : MonoBehaviour
 
     RTS_Camera cam;
 
+    //Players
+    Gov_Player govPlayer;
+
     private void Awake()
     {
         outline = GetComponent<Outline>();
         toggleOutline(false);
 
         cam = FindObjectOfType<RTS_Camera>();
+
+        govPlayer = FindObjectOfType<Gov_Player>();
     }
 
     private void Start()
@@ -36,10 +41,19 @@ public class BuildingClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(IsPointerOverUIObject() == false)
+        if(IsPointerOverUIObject() == false) //check if over UI
         {
-            if (isClicked) { unclick(); isClicked = false; }
-            else { click(); isClicked = true; }
+            if(gm.isGovTurn() && (govPlayer.getState() == Gov_Player.playerStates.Targeting))
+            {
+                //Just highlight, add to targetting
+
+            }
+            else
+            {
+                //Normal clicking
+                if (isClicked) { unclick(); isClicked = false; }
+                else { click(); isClicked = true; }
+            }            
         }
     }
 

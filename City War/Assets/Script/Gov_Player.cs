@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class Gov_Player : MonoBehaviour
 {
+    [Header("Action Buttons")]
+    public Button[] actionButtons;
+    int selectedActionButton = 99;
+    public Button[] shopButtons;
+    int selectedShopButton = 99;
     public Button stateButton;
 
     Gov_Manager manager;
@@ -12,11 +17,15 @@ public class Gov_Player : MonoBehaviour
 
     bool singlePlayer;
 
+    #region states
+
     public enum playerStates { Waiting, Shopping, Targeting, Ready, Gaming, FinishedTurn }
     public playerStates state;
 
     public void setState(playerStates newState) { state = newState; }
     public playerStates getState() { return state; }
+
+    #endregion
 
     private void Awake()
     {
@@ -27,6 +36,35 @@ public class Gov_Player : MonoBehaviour
     private void Start()
     {
         singlePlayer = GameManager.instance.singlePlayer;
+    }
+
+    public void clickActionButton(int id)
+    {
+        if(id == selectedActionButton)
+        {
+            //Reset everything
+            for (int i = 0; i < actionButtons.Length; i++)
+            {
+                actionButtons[id].image.color = Color.white; //Color.white resets the color
+            }
+
+            selectedActionButton = 99;
+        }
+        else
+        {
+            for (int i = 0; i < actionButtons.Length; i++)
+            {
+                actionButtons[id].image.color = Color.white; //Color.white resets the color
+            }
+
+            //"Highlights" the button
+            actionButtons[id].image.color = ColorPallette.instance.getColorGov("light");
+        }      
+    }
+
+    public void clickShopButton(int id)
+    {
+
     }
 
     public void toggleStateButton(bool isTurn)
@@ -44,8 +82,6 @@ public class Gov_Player : MonoBehaviour
             ui.setStateButtonText("Ready");
         }
     }
-
-
     public void endTurn()
     {
         setState(playerStates.FinishedTurn);
@@ -61,8 +97,6 @@ public class Gov_Player : MonoBehaviour
             //if(Ter_Player.getState() == Ter_Player.playerStates.FinishedTurn)
         }
     }
-    
-
     public void setReady()
     {
         setState(playerStates.Ready);

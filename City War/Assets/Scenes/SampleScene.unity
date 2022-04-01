@@ -3646,7 +3646,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Action
+  m_Text: Shop
 --- !u!222 &327825473
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7102,7 +7102,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 703044906}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1271026525}
+        m_TargetAssemblyTypeName: Gov_Player, Assembly-CSharp
+        m_MethodName: clickActionButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &703044906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11095,7 +11107,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 969117455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1271026525}
+        m_TargetAssemblyTypeName: Gov_Player, Assembly-CSharp
+        m_MethodName: clickActionButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &969117455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13165,7 +13189,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1172301330}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1271026525}
+        m_TargetAssemblyTypeName: Gov_Player, Assembly-CSharp
+        m_MethodName: clickActionButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1172301330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13871,6 +13907,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9b5c38d252f35489a957702bf3f839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionButtons:
+  - {fileID: 703044905}
+  - {fileID: 2012365197}
+  - {fileID: 1172301329}
+  - {fileID: 969117454}
+  - {fileID: 1904738150}
+  - {fileID: 1797283039}
+  shopButtons: []
   stateButton: {fileID: 703705664}
   state: 0
 --- !u!1001 &1275601994
@@ -18593,7 +18637,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1797283040}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1271026525}
+        m_TargetAssemblyTypeName: Gov_Player, Assembly-CSharp
+        m_MethodName: clickActionButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1797283040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19236,7 +19292,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1904738151}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1271026525}
+        m_TargetAssemblyTypeName: Gov_Player, Assembly-CSharp
+        m_MethodName: clickActionButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1904738151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20161,7 +20229,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2012365198}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1271026525}
+        m_TargetAssemblyTypeName: Gov_Player, Assembly-CSharp
+        m_MethodName: clickActionButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2012365198
 MonoBehaviour:
   m_ObjectHideFlags: 0
