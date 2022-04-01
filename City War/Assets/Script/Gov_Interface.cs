@@ -29,6 +29,7 @@ public class Gov_Interface : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject quitScreen;
 
+    #region bottom right
     public void togglePanel(bool action)
     {
         switch (action)
@@ -50,17 +51,16 @@ public class Gov_Interface : MonoBehaviour
     }
     public void setActionCounter(int index, int amount) { actionCounter[index].text = amount.ToString(); }
     public void setTargetCounter(int index, int amount) { targetCounter[index].text = amount.ToString(); }
-
     public void setStateButtonText(string newString) { stateButton.text = newString; }
+    #endregion
 
+    #region header
     public void triggerHeaderPerm(string text)
     {
         headerObj.SetActive(true);
         headerText.text = text;
     }
-
     public void setHeader(bool val) { headerObj.SetActive(val); }
-
     public void triggerHeader(string text)
     {
         headerObj.SetActive(true);
@@ -68,12 +68,12 @@ public class Gov_Interface : MonoBehaviour
 
         hideHeader();
     } 
-
     IEnumerator hideHeader()
     {
         yield return new WaitForSeconds(3);
         headerObj.SetActive(false);
     }
+    #endregion
 
     public void togglePause(int index)
     {

@@ -12,7 +12,7 @@ public class Gov_Player : MonoBehaviour
 
     bool singlePlayer;
 
-    public enum playerStates { Waiting, Shopping, Ready, Gaming, FinishedTurn }
+    public enum playerStates { Waiting, Shopping, Targeting, Ready, Gaming, FinishedTurn }
     public playerStates state;
 
     public void setState(playerStates newState) { state = newState; }
