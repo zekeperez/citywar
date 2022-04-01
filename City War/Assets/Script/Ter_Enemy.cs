@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ter_Enemy : MonoBehaviour
 {
     [Header("Economy")]
-    public int money;
+    public int money = 250;
     public int capturedHouseInc = 150;
     public int capturedCommercialInc = 250;
     public int capturedIndustrialInc = 500;
@@ -27,15 +27,26 @@ public class Ter_Enemy : MonoBehaviour
         if(targeting == null) { Debug.LogError("Terrorist AI has no targeting system."); }
     }
 
-    public void startTurn()
+    public void startTurn(bool isTurn)
     {
+        Debug.Log("TER_AI: Starting Turn (" + isTurn + ")");
         applySalary();
-        automateTurn();
+        //if (isTurn) { automateTurn(); }
+        //else { automateShopping(); }
+
+        endTurn();
+        //Invoke("endTurn", Random.Range(3, 5));
+    }
+
+    public void chooseStronghold() //dev note, strongholds dont affect indu-comm relationships
+    {
+        Building randomBuilding = targeting.getSingleRandomBuilding();
+        randomBuilding.setState(Building.buildingStates.Stronghold);
     }
 
     void automateTurn()
     {
-        int rand = Random.Range(0, 5);
+        int rand = Random.Range(0, 6);
 
         switch (rand)
         {
@@ -142,10 +153,13 @@ public class Ter_Enemy : MonoBehaviour
             case 4: //stronghold
                 convertStronghold();
                 break;
-        }
-    }
 
- 
+            case 5:
+                Debug.Log("TER_AI: Abstaining this round.");
+                break;
+        }
+
+    }
 
     void automateShopping()
     {
@@ -169,10 +183,23 @@ public class Ter_Enemy : MonoBehaviour
             case 3:
                 massBuyTrapBombs();
                 break;
-        }
 
-        // end turn is called here
+            case 4:
+                Debug.Log("TER_AI: Abstaining this round.");
+                break;
+        }
     }
+
+
+    void endTurn()
+    {
+        Debug.Log("TER_AI: Completed Action. Waiting for Player to finish.");
+
+        //GameManager.instance.endTurn();
+    }
+
+
+
 
     #region AI actions
 

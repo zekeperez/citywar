@@ -12502,7 +12502,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1108957806
 MonoBehaviour:
@@ -12528,7 +12528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754492819b450eb4898f1e2ecd99db46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 150
   capturedHouseInc: 150
   capturedCommercialInc: 250
   capturedIndustrialInc: 500
@@ -13388,8 +13388,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff912b457242724cb58ca732574b3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  govTurn: 1
+  govTurn: 0
   paused: 0
+  singlePlayer: 1
+  spIsGov: 1
 --- !u!1 &1207141553
 GameObject:
   m_ObjectHideFlags: 0
@@ -13533,7 +13535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1261875337
 PrefabInstance:
@@ -14153,6 +14155,50 @@ MonoBehaviour:
   state: 0
   type: 0
   population: 0
+--- !u!1 &1300184246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1300184247}
+  - component: {fileID: 1300184248}
+  m_Layer: 0
+  m_Name: DayCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1300184247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300184246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1943582969}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1300184248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300184246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ccc7d17148330746ace60a619b6d179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayCounterText: {fileID: 0}
 --- !u!1 &1306807954
 GameObject:
   m_ObjectHideFlags: 0
@@ -19512,6 +19558,7 @@ Transform:
   - {fileID: 1200829769}
   - {fileID: 1906556863}
   - {fileID: 1906130614}
+  - {fileID: 1300184247}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
