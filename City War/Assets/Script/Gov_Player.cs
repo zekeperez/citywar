@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Gov_Player : MonoBehaviour
 {
+    #region actions
     [Header("Action Buttons")]
     public Button[] actionButtons;
     bool[] actionInUse;
@@ -12,11 +13,25 @@ public class Gov_Player : MonoBehaviour
     public Button[] shopButtons;
     int selectedShopButton = 99;
     public Button stateButton;
+    #endregion
 
     Gov_Manager manager;
     Gov_Interface ui;
-
     bool singlePlayer;
+
+    #region action interfaces
+    [Header("Action Descriptions")]
+    public Sprite[] buttonLogos;
+
+    public GameObject actionConfirmation;
+    public GameObject actionExplanation;
+    public Image actionSprite;
+    public Text actionHeader;
+    public Text actionDescription;
+
+    public GameObject shopConfirmation;
+    public GameObject shopExplanation;
+    #endregion
 
     #region states
 
@@ -44,36 +59,83 @@ public class Gov_Player : MonoBehaviour
 
     public void clickActionButton(int id)
     {
-        if(id == selectedActionButton)
+        if(actionActive(id) == false)
         {
-            //Reset everything
-            for (int i = 0; i < actionButtons.Length; i++)
+            if (id == selectedActionButton)
             {
-                actionButtons[i].GetComponent<ToggleButton>().setGraphic(false);
-            }
+                //Reset everything
+                for (int i = 0; i < actionButtons.Length; i++)
+                {
+                    actionButtons[i].GetComponent<ToggleButton>().setGraphic(false);
+                }
 
-            selectedActionButton = 99;
+                toggleActionConfirmation(false);
+                selectedActionButton = 99;
+            }
+            else //select button
+            {
+                selectedActionButton = id;
+
+                //Panels
+                toggleActionConfirmation(true);
+                setActionConfirmation(id);
+
+                //Buttons
+                for (int i = 0; i < actionButtons.Length; i++)
+                {
+                    actionButtons[i].GetComponent<ToggleButton>().setGraphic(false);
+                }
+
+                //"Highlights" the button
+                actionButtons[id].GetComponent<ToggleButton>().setGraphic(true);
+            }
         }
         else
         {
-            selectedActionButton = id;
-
-            for (int i = 0; i < actionButtons.Length; i++)
-            {
-                actionButtons[i].GetComponent<ToggleButton>().setGraphic(false);
-            }
-
-            //"Highlights" the button
-            actionButtons[id].GetComponent<ToggleButton>().setGraphic(true);
+            Debug.Log("GOV_Player: Cancel action here");
         }
     }
+
+    void toggleActionConfirmation(bool val) { actionConfirmation.SetActive(val); }
+    void toggleShopConfirmation(bool val) { shopConfirmation.SetActive(val); }
+
+    void setActionConfirmation(int index)
+    {
+        switch (index)
+        {
+            case 0: //bomb
+            default:
+                actionSprite.sprite = buttonLogos[0];
+                actionHeader.text = "Bomb";
+
+                actionDescription.text = "";
+                break;
+
+            case 1: //drone
+                break;
+
+            case 2: //shield
+                break;
+
+            case 3: //barge
+                break;
+
+            case 4: //police
+                break;
+
+            case 5: //repair
+                break;
+        }
+    }
+
+
 
     public void clickShopButton(int id)
     {
 
     }
 
-    bool actionActive(int index) { return actionInUse[index]; }
+    bool actionActive(int index) { return actionInUse[index]; } //check if there are already targets in use
 
     public void toggleStateButton(bool isTurn)
     {
