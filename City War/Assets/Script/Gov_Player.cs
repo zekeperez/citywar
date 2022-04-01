@@ -7,6 +7,7 @@ public class Gov_Player : MonoBehaviour
 {
     [Header("Action Buttons")]
     public Button[] actionButtons;
+    bool[] actionInUse;
     int selectedActionButton = 99;
     public Button[] shopButtons;
     int selectedShopButton = 99;
@@ -29,6 +30,9 @@ public class Gov_Player : MonoBehaviour
 
     private void Awake()
     {
+        actionInUse = new bool[5];
+        for(int i = 0; i < actionInUse.Length; i++) { actionInUse[i] = false; }
+
         manager = GetComponent<Gov_Manager>();
         ui = GetComponent<Gov_Interface>();
     }
@@ -45,27 +49,31 @@ public class Gov_Player : MonoBehaviour
             //Reset everything
             for (int i = 0; i < actionButtons.Length; i++)
             {
-                actionButtons[id].image.color = Color.white; //Color.white resets the color
+                actionButtons[i].GetComponent<ToggleButton>().setGraphic(false);
             }
 
             selectedActionButton = 99;
         }
         else
         {
+            selectedActionButton = id;
+
             for (int i = 0; i < actionButtons.Length; i++)
             {
-                actionButtons[id].image.color = Color.white; //Color.white resets the color
+                actionButtons[i].GetComponent<ToggleButton>().setGraphic(false);
             }
 
             //"Highlights" the button
-            actionButtons[id].image.color = ColorPallette.instance.getColorGov("light");
-        }      
+            actionButtons[id].GetComponent<ToggleButton>().setGraphic(true);
+        }
     }
 
     public void clickShopButton(int id)
     {
 
     }
+
+    bool actionActive(int index) { return actionInUse[index]; }
 
     public void toggleStateButton(bool isTurn)
     {
