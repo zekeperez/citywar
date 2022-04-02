@@ -26,17 +26,19 @@ public class Gov_Player : MonoBehaviour
     public GameObject actionConfirmation;
     public GameObject actionExplanation;
     public Image actionSprite;
+    public Text actionConfirmationHeader;
+    public Image actionConfirmationSprite;
     public Text actionHeader;
     public Text actionDescription;
-    string lineBreakGap = "\n\n\n";
+    Gov_ActionStrings actionStrings;
 
     public GameObject shopConfirmation;
     public GameObject shopExplanation;
     #endregion
 
     #region states
-
     public enum playerStates { Waiting, Shopping, Targeting, Ready, Gaming, FinishedTurn }
+    [Header("States")]
     public playerStates state;
 
     public void setState(playerStates newState) { state = newState; }
@@ -46,25 +48,28 @@ public class Gov_Player : MonoBehaviour
 
     private void Awake()
     {
-        actionInUse = new bool[5];
+        actionInUse = new bool[6];
         for(int i = 0; i < actionInUse.Length; i++) { actionInUse[i] = false; }
 
         manager = GetComponent<Gov_Manager>();
         ui = GetComponent<Gov_Interface>();
+
+        actionStrings = new Gov_ActionStrings();
     }
 
     private void Start()
     {
         singlePlayer = GameManager.instance.singlePlayer;
+        toggleActionConfirmation(false);
+        toggleActionExplanation(false);
     }
 
     public void clickActionButton(int id)
     {
         if(actionActive(id) == false)
         {
-            if (id == selectedActionButton)
+            if (id == selectedActionButton) //reset everything
             {
-                //Reset everything
                 for (int i = 0; i < actionButtons.Length; i++)
                 {
                     actionButtons[i].GetComponent<ToggleButton>().setGraphic(false);
@@ -80,6 +85,7 @@ public class Gov_Player : MonoBehaviour
                 //Panels
                 toggleActionConfirmation(true);
                 setActionConfirmation(id);
+                setActionExplanation(id); //set description
 
                 //Buttons
                 for (int i = 0; i < actionButtons.Length; i++)
@@ -96,88 +102,44 @@ public class Gov_Player : MonoBehaviour
             Debug.Log("GOV_Player: Cancel action here");
         }
     }
-
-    void toggleActionConfirmation(bool val) { actionConfirmation.SetActive(val); }
-    void toggleShopConfirmation(bool val) { shopConfirmation.SetActive(val); }
-
-    void setActionConfirmation(int index)
+    public void clickActionConfirmationButton(int id)
     {
-        actionSprite.sprite = buttonLogos[index];
-
-        switch (index)
+        switch (id)
         {
-            case 0: //bomb
+            case 0: //Cancel
             default:
-                actionHeader.text = "Bomb";
-
-                actionDescription.text = "The bomb is a lethal explosive device capable of fully destroying buildings.\n" +
-                                                            "When used, anyone living inside will cease to exist, including the\n" +
-                                                            "functionalities of the building." + lineBreakGap +
-
-                                                            "+ Destroying the final stronghold can net you the win. \n" +
-                                                            "= Destroying captured buildings won't have any repercussions, however \n" + 
-                                                            "the citizens might think otherwise.\n" + 
-                                                            "- Destroying innocent buildings will have repercussions.";
+                clickActionButton(selectedActionButton);
                 break;
 
-            case 1: //drone
-                actionHeader.text = "Drone";
-
-                actionDescription.text = "Provides a surveillance drone to the target building.\n" +
-                                                            "Reveals the current status of the building." + lineBreakGap +
-
-                                                            "+ Reveals the real status of the building on that current turn.\n" + 
-                                                            "+ Citizens will gradually become unhappy due to its invasive nature.";
+            case 1: //Information
+                toggleActionConfirmation(false);
+                toggleActionExplanation(true);
+                setActionExplanation(id);
                 break;
 
-            case 2: //shield
-                actionHeader.text = "Defense";
-
-                actionDescription.text = "Send troops to defend a building. Prevents any form of capture.\n" +
-                                                            "However, their presence will definitely displease the tenants." + lineBreakGap +
-
-                                                            "+ Prevents the Terrorist from capturing the building once.\n" +
-                                                            "- Reduce overall happiness.";
-                break;
-
-            case 3: //barge
-                actionHeader.text = "Barge In";
-
-                actionDescription.text = "Send troops to barge into a building with lethal force authorized.\n" + 
-                                                            "Well - trained troops can decipher situations better than untrained troops." + lineBreakGap + 
-
-
-                                                            "+ Captured buildings will return to a neutral state.\n" + 
-                                                            "- Barging in to innocent buildings will have repercussions.\n" + 
-                                                            "-Strongholds can fend off barge in attacks.\n" + 
-                                                             "- Untrained officers may cause casualties.";
-                break;
-
-            case 4: //police
-                actionHeader.text = "Patrol Check";
-
-                actionDescription.text = "Send troops to check in on houses. Depending on population happiness,\n" +
-                                                            "civilians have the right to decline. Definitely cheaper and less intrusive\n" +
-                                                            "than the drone." + lineBreakGap +
-
-                                                            "= Only reveals if the building is currently occupied or not.\n" +
-                                                            "= Chances of reveal depends on population happiness.";
-                break;
-
-            case 5: //repair
-                actionHeader.text = "Building Reparations";
-
-                actionDescription.text = "Hire a repair team and rebuild the destroyed building. The building will\n" +
-                                                            "immediately be available for use." + lineBreakGap +
-
-                                                            "+ Repair a building.\n" +
-                                                            "+ Increases population happiness.\n" +
-                                                            "-It will instantly be available for use for the next player.";
+            case 2: //Confirmation
+                Debug.Log("CONFIRMED ACTION.");
                 break;
         }
     }
 
+    void toggleActionConfirmation(bool val) { actionConfirmation.SetActive(val); } //toggles the action confirmation screen
+    void toggleActionExplanation(bool val) { actionExplanation.SetActive(val); } //toggles the action description screen
+    void toggleShopConfirmation(bool val) { shopConfirmation.SetActive(val); }
 
+    void setActionExplanation(int index) // pulls up the screen to describe the action
+    {
+        actionSprite.sprite = buttonLogos[index];
+
+        actionHeader.text = actionStrings.getActionString(index)[0];
+        actionDescription.text = actionStrings.getActionString(index)[1];
+    }
+
+    void setActionConfirmation(int index)
+    {
+        actionConfirmationHeader.text = actionStrings.getActionString(index)[0];
+        actionConfirmationSprite.sprite = buttonLogos[index];
+    }
 
     public void clickShopButton(int id)
     {
