@@ -34,6 +34,8 @@ public class Gov_Player : MonoBehaviour
 
     public GameObject shopConfirmation;
     public GameObject shopExplanation;
+
+    bool confirmationScreen = true;
     #endregion
 
     #region states
@@ -61,7 +63,7 @@ public class Gov_Player : MonoBehaviour
     {
         singlePlayer = GameManager.instance.singlePlayer;
         toggleActionConfirmation(false);
-        toggleActionExplanation(false);
+        //toggleActionExplanation(false);
     }
 
     public void clickActionButton(int id)
@@ -113,7 +115,7 @@ public class Gov_Player : MonoBehaviour
 
             case 1: //Information
                 toggleActionConfirmation(false);
-                toggleActionExplanation(true);
+                //toggleActionExplanation(true);
                 setActionExplanation(id);
                 break;
 
@@ -123,8 +125,8 @@ public class Gov_Player : MonoBehaviour
         }
     }
 
-    void toggleActionConfirmation(bool val) { actionConfirmation.SetActive(val); } //toggles the action confirmation screen
-    void toggleActionExplanation(bool val) { actionExplanation.SetActive(val); } //toggles the action description screen
+    void toggleActionConfirmation(bool val) { actionConfirmation.SetActive(val); confirmationScreen = val; actionExplanation.SetActive(!val); } //toggles the action confirmation screen
+    //void toggleActionExplanation(bool val) { actionExplanation.SetActive(val); } //toggles the action description screen
     void toggleShopConfirmation(bool val) { shopConfirmation.SetActive(val); }
 
     void setActionExplanation(int index) // pulls up the screen to describe the action
