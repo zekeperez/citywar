@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gov_Manager : MonoBehaviour
 {
+    public static Gov_Manager instance;
     public int money = 150;
     public int incHouse = 50;
     public int incCommercial = 100;
@@ -14,6 +15,7 @@ public class Gov_Manager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         ui = GetComponent<Gov_Interface>();
         player = GetComponent<Gov_Player>();
     }
@@ -22,6 +24,7 @@ public class Gov_Manager : MonoBehaviour
     {
         //Starting UI
         ui.togglePause(0);
+        ui.setMoneyText(money);
     }
 
     public void startShop()
@@ -52,6 +55,9 @@ public class Gov_Manager : MonoBehaviour
         money += getIncome();
         ui.setMoneyText(money);
     }
+
+    public void deductMoney(int val) { money -= val; }
+    public void addMoney(int val) { money += val; }
 
     int getIncome()
     {
