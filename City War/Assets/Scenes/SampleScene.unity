@@ -15169,6 +15169,20 @@ MonoBehaviour:
   actionConfirmationSprite: {fileID: 1860104980}
   actionHeader: {fileID: 1517700798}
   actionDescription: {fileID: 2024450294}
+  inventoryCounter:
+  - {fileID: 1262581306}
+  - {fileID: 428332831}
+  - {fileID: 784148226}
+  - {fileID: 1765130108}
+  - {fileID: 1390303760}
+  - {fileID: 819622287}
+  targetCounter:
+  - {fileID: 203142269}
+  - {fileID: 239982320}
+  - {fileID: 711287528}
+  - {fileID: 866560345}
+  - {fileID: 974111219}
+  - {fileID: 1886473235}
   buttonLogos_Green:
   - {fileID: 21300000, guid: 10b8c35d6c4b3784089c1873a757ede1, type: 3}
   - {fileID: 21300000, guid: f7a1800cad750124e89d95e32b49481c, type: 3}
@@ -15181,7 +15195,7 @@ MonoBehaviour:
   shopSprite: {fileID: 103453002}
   shopConfirmationHeader: {fileID: 959141776}
   shopConfirmationSprite: {fileID: 210798355}
-  shopHeader: {fileID: 199003322}
+  shopHeader: {fileID: 1255130691}
   shopDescription: {fileID: 199003322}
   shopPrices: 960000004b000000fa000000c8000000320000005e010000
   shopPriceTexts:
@@ -21338,6 +21352,7 @@ MonoBehaviour:
   stronghold: {r: 1, g: 0.9804344, b: 0, a: 0}
   neutral: {r: 1, g: 0.98039216, b: 1, a: 0}
   bombed: {r: 1, g: 0.7293082, b: 0, a: 0}
+  targetColor: {r: 0.45490196, g: 0, b: 0.537891, a: 0}
 --- !u!1 &1906556862
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,14 +18,18 @@ public class BuildingClick : MonoBehaviour
 
     //Players
     Gov_Player govPlayer;
+    Gov_Interface govInterface;
+
+    Building building;
 
     private void Awake()
     {
+        building = GetComponent<Building>();
         outline = GetComponent<Outline>();
         toggleOutline(false);
 
         cam = FindObjectOfType<RTS_Camera>();
-
+        govInterface = FindObjectOfType<Gov_Interface>();
         govPlayer = FindObjectOfType<Gov_Player>();
     }
 
@@ -45,8 +49,37 @@ public class BuildingClick : MonoBehaviour
         {
             if(gm.isGovTurn() && (govPlayer.getState() == Gov_Player.playerStates.Targeting))
             {
-                //Just highlight, add to targetting
+                int selectedAction = govPlayer.getSelectedAction();
 
+                //Just highlight, add to targetting
+                if (!isClicked) //add to target
+                {
+                    if (govPlayer.totalTargets(selectedAction) >= govPlayer.getInventoryAmount(selectedAction))
+                    {
+                        Debug.Log("Max amount of targets for this inventory reached (" + selectedAction + ")");
+                    }
+                    else
+                    {
+                        isClicked = true;
+                        //Outline
+                        toggleOutline(true);
+                        setOutlineColor(ColorPallette.instance.getColor("targetColor"));
+                        govPlayer.addTarget(building, selectedAction);
+                    }                  
+                }
+                else //remove target
+                {
+                    isClicked = false;
+                    toggleOutline(false);
+                    govPlayer.removeTarget(building, selectedAction);
+                }
+
+                //Header
+                govInterface.triggerHeaderPerm("Select your targets. Targets selected: " +
+                    govPlayer.totalTargets(selectedAction));
+
+                //Interface
+                govPlayer.updateTargetCounter();
             }
             else
             {
@@ -63,6 +96,7 @@ public class BuildingClick : MonoBehaviour
 
         //Outline
         toggleOutline(true);
+        setOutlineColor(ColorPallette.instance.getColor("neutral"));
 
         if (gm.isGovTurn())
         {

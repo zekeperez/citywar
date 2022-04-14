@@ -20,6 +20,7 @@ public class ColorPallette : MonoBehaviour
     [Header("Neutral")]
     public Color neutral;
     public Color bombed;
+    public Color targetColor;
     
     private void Awake()
     {
@@ -41,6 +42,9 @@ public class ColorPallette : MonoBehaviour
 
             case "terlight":
                 return terLight;
+
+            case "targetColor":
+                return targetColor;
 
             case "neutral":
             default:

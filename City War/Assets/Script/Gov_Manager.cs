@@ -35,6 +35,7 @@ public class Gov_Manager : MonoBehaviour
         ui.togglePanel(false);
         ui.setHeader(false);
         player.toggleStateButton(false);
+        player.updateInventoryCounter();
     }
 
     public void startTurn()
@@ -48,6 +49,7 @@ public class Gov_Manager : MonoBehaviour
         ui.togglePanel(true);
         ui.setHeader(false);
         player.toggleStateButton(true);
+        player.updateInventoryCounter();
     }
 
     public void applySalary()
