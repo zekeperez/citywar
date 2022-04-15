@@ -18,10 +18,12 @@ public class Building : MonoBehaviour
     public int getPopulation() { return population; }
 
     BuildingMat mat;
+    Outline outline;
 
     private void Awake()
     {
         mat = GetComponent<BuildingMat>();
+        outline = GetComponent<Outline>();
 
         //set population
         switch (type)
@@ -45,9 +47,10 @@ public class Building : MonoBehaviour
     }
 
     public void bombBuilding()
-    {
+    {  
         setState(buildingStates.Bombed);
         mat.setMat("bombed");
+        outline.enabled = false;
     }
 
     public void resetBuilding()

@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
             if (spIsGov)
             {
                 #region Government
-                //List<Building> govBombTargets
+                govPlayer.animateTargets();
                 #endregion
 
                 #region Terrorist

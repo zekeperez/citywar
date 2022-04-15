@@ -72,6 +72,8 @@ public class Gov_Player : MonoBehaviour
     #endregion
 
     #region targetting
+    [Header("Animation Prefabs")]
+    public GameObject bombPrefab;
     List<Building> targetBuildings_0 = new List<Building>();
     List<Building> targetBuildings_1 = new List<Building>();
     List<Building> targetBuildings_2 = new List<Building>();
@@ -239,7 +241,6 @@ public class Gov_Player : MonoBehaviour
         actionButtons[selectedActionButton].GetComponent<ToggleButton>().setGraphic(false);
         selectedActionButton = 99;
     }
-
     public void confirmTargets()
     {
         targetInterfaceParent.SetActive(false);
@@ -252,7 +253,6 @@ public class Gov_Player : MonoBehaviour
         actionButtons[selectedActionButton].GetComponent<ToggleButton>().setGraphic(false);
         selectedActionButton = 99;
     }
-
     void clearCurrentTargets(bool confirm)
     {
         for(int i  = 0; i < targetHolder.Count; i++)
@@ -419,8 +419,6 @@ public class Gov_Player : MonoBehaviour
         targetCounter[4].text = targetBuildings_4.Count.ToString();
         targetCounter[5].text = targetBuildings_5.Count.ToString();
     }
-
-    #endregion
     public void clearTargets(int index)
     {
         switch (index)
@@ -520,6 +518,8 @@ public class Gov_Player : MonoBehaviour
                 return false;
         }
     }
+    #endregion
+
     //void toggleActionExplanation(bool val) { actionExplanation.SetActive(val); } //toggles the action description screen
     public void endTurn()
     {
@@ -534,6 +534,21 @@ public class Gov_Player : MonoBehaviour
 
         if (singlePlayer) //if singleplayer, end turn immediately
         {
+            //Update inventory
+            inventory[0] -= targetBuildings_0.Count;
+            inventory[1] -= targetBuildings_1.Count;
+            inventory[2] -= targetBuildings_2.Count;
+            inventory[3] -= targetBuildings_3.Count;
+            inventory[4] -= targetBuildings_4.Count;
+            inventory[5] -= targetBuildings_5.Count;
+            updateInventoryCounters();
+            updateTargetCounter();
+            
+            for(int i = 0; i < targetCounter.Length; i++)
+            {
+                targetCounter[i].gameObject.SetActive(false);
+            }
+
             GameManager.instance.endTurn();
         }
         else //else wait for other player
@@ -556,6 +571,48 @@ public class Gov_Player : MonoBehaviour
         //do a check if other player is finishedturn here
         GameManager.instance.endTurn();
     }
+
+    public void animateTargets()
+    {
+        //Go through each target list and animate
+
+        //Bomb
+        for(int i = 0; i < targetBuildings_0.Count; i++)
+        {
+            //Bomb animation
+            GameObject toBomb = targetBuildings_0[i].gameObject;
+
+            int randomizedHeight = Random.Range(9, 12);
+
+            Vector3 bombSpawn = new Vector3(
+                toBomb.transform.position.x,
+                toBomb.transform.position.y + randomizedHeight,
+                toBomb.transform.position.z
+                );
+
+            GameObject bomb = Instantiate(bombPrefab, bombSpawn, Quaternion.identity);
+            bomb.GetComponent<Bomb>().setTargetBuilding(targetBuildings_0[i]);
+        }
+
+        //Drone
+        for(int i = 0; i < targetBuildings_1.Count; i++)
+        {
+            //Drone animation
+            GameObject toDrone = targetBuildings_1[i].gameObject;
+            //GameObject drone = Instantiate(dronePrefab, toDrone.transform.position, Quaternion.identity);
+        }
+
+        //Protect
+        for(int i = 0; i <targetBuildings_2.Count; i++)
+        {
+            //Protect animation
+            GameObject toProtect = targetBuildings_2[i].gameObject;
+            //GameObject protect = Instantiate(protectPrefab, toProtect.transform.position, Quaternion.identity);
+        }
+
+        clearAllTargets();
+    }
+
 
     #region shop
     public void toggleShopConfirmation(bool val) { shopConfirmation.SetActive(val); shopExplanation.SetActive(!val); }
