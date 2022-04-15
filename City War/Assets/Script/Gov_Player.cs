@@ -30,6 +30,7 @@ public class Gov_Player : MonoBehaviour
     public Text actionHeader;
     public Text actionDescription;
     public Text[] inventoryCounter;
+    public GameObject targetInterfaceParent;
     public Text[] targetCounter;
 
     Gov_ActionStrings actionStrings;
@@ -78,6 +79,7 @@ public class Gov_Player : MonoBehaviour
     List<Building> targetBuildings_4 = new List<Building>();
     List<Building> targetBuildings_5 = new List<Building>();
 
+    List<Building> targetHolder = new List<Building>();
     #endregion
 
     private void Awake()
@@ -202,8 +204,6 @@ public class Gov_Player : MonoBehaviour
     {
         if (val) //start multi targetting mode
         {
-            Debug.Log("GOV_PLAYER: TARGET MODE ON"); 
-
             //State
             setState(playerStates.Targeting);
 
@@ -213,49 +213,82 @@ public class Gov_Player : MonoBehaviour
             ui.triggerHeaderPerm("Select your targets. Targets selected: " + totalTargets(selectedActionButton));
             if(!targetCounter[selectedActionButton].gameObject.activeInHierarchy) targetCounter[selectedActionButton].gameObject.SetActive(true);
             targetCounter[selectedActionButton].text = totalTargets(selectedActionButton).ToString();
+            targetInterfaceParent.SetActive(true);
         }
         else //stop 
         {
-            Debug.Log("GOV_PLAYER: TARGET MODE OFF");
-
             //State
             setState(playerStates.Gaming);
 
             //Interface
-            
+            targetInterfaceParent.SetActive(false);
+            ui.setHeader(false);
+        }
+    }
+    public void cancelTargetting()
+    {
+        targetInterfaceParent.SetActive(false);
+        ui.setHeader(false);
+
+        removeTargets(selectedActionButton);
+        setState(playerStates.Gaming);
+
+        clearCurrentTargets(false);
+
+        //reset action button
+        actionButtons[selectedActionButton].GetComponent<ToggleButton>().setGraphic(false);
+        selectedActionButton = 99;
+    }
+
+    public void confirmTargets()
+    {
+        targetInterfaceParent.SetActive(false);
+        ui.setHeader(false);
+        setState(playerStates.Gaming);
+
+        clearCurrentTargets(true);
+
+        //reset action button
+        actionButtons[selectedActionButton].GetComponent<ToggleButton>().setGraphic(false);
+        selectedActionButton = 99;
+    }
+
+    void clearCurrentTargets(bool confirm)
+    {
+        for(int i  = 0; i < targetHolder.Count; i++)
+        {
+            BuildingClick click = targetHolder[i].GetComponent<BuildingClick>();
+            click.isClicked = false;
+            if(!confirm) click.toggleOutline(false);
         }
     }
     public void addTarget(Building newTarget, int index)
     {
         if(!targetExists(newTarget, index))
         {
-            Debug.Log("Adding target to : " + index);
+            targetHolder.Add(newTarget);
+
             switch (index)
             {
                 case 0:
                 default:
                     targetBuildings_0.Add(newTarget);
-                    Debug.Log("Total targets: " + index);
                     break;
 
                 case 1:
                     targetBuildings_1.Add(newTarget);
-                    Debug.Log("Total targets: " + index);
                     break;
 
                 case 2:
                     targetBuildings_2.Add(newTarget);
-                    Debug.Log("Total targets: " + index);
                     break;
 
                 case 3:
                     targetBuildings_3.Add(newTarget);
-                    Debug.Log("Total targets: " + index);
                     break;
 
                 case 4:
                     targetBuildings_4.Add(newTarget);
-                    Debug.Log("Total targets: " + index);
                     break;
 
                 case 5:
@@ -272,6 +305,8 @@ public class Gov_Player : MonoBehaviour
     }
     public void removeTarget(Building removeTarget, int index)
     {
+        targetHolder.Remove(removeTarget);
+
         switch (index)
         {
             case 0:
@@ -318,6 +353,37 @@ public class Gov_Player : MonoBehaviour
                 break;
 
 
+        }
+    }
+    public void removeTargets(int index)
+    {
+        targetHolder.Clear();
+        switch (index)
+        {
+            case 0:
+            default:
+                targetBuildings_0.Clear();
+                break;
+
+            case 1:
+                targetBuildings_1.Clear();
+                break;
+
+            case 2:
+                targetBuildings_2.Clear();
+                break;
+
+            case 3:
+                targetBuildings_3.Clear();
+                break;
+
+            case 4:
+                targetBuildings_4.Clear();
+                break;
+
+            case 5:
+                targetBuildings_5.Clear();
+                break;
         }
     }
     public int totalTargets(int index) 

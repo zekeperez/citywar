@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class BuildingClick : MonoBehaviour
 {
-    bool isClicked = false;
+    public bool isClicked = false;
+    bool isTargeted = false;
 
     BuildingManager bm;
     ColorPallette color;
@@ -47,7 +48,7 @@ public class BuildingClick : MonoBehaviour
     {
         if(IsPointerOverUIObject() == false) //check if over UI
         {
-            if(gm.isGovTurn() && (govPlayer.getState() == Gov_Player.playerStates.Targeting))
+            if(gm.isGovTurn() && (govPlayer.getState() == Gov_Player.playerStates.Targeting)) //actively targeting
             {
                 int selectedAction = govPlayer.getSelectedAction();
 
@@ -61,8 +62,11 @@ public class BuildingClick : MonoBehaviour
                     else
                     {
                         isClicked = true;
+                        isTargeted = true;
+
                         //Outline
                         toggleOutline(true);
+                        Debug.Log("Target Color");
                         setOutlineColor(ColorPallette.instance.getColor("targetColor"));
                         govPlayer.addTarget(building, selectedAction);
                     }                  
@@ -70,6 +74,8 @@ public class BuildingClick : MonoBehaviour
                 else //remove target
                 {
                     isClicked = false;
+                    isTargeted = false;
+
                     toggleOutline(false);
                     govPlayer.removeTarget(building, selectedAction);
                 }
@@ -96,7 +102,7 @@ public class BuildingClick : MonoBehaviour
 
         //Outline
         toggleOutline(true);
-        setOutlineColor(ColorPallette.instance.getColor("neutral"));
+        if(!isTargeted) setOutlineColor(ColorPallette.instance.getColor("neutral"));
 
         if (gm.isGovTurn())
         {
@@ -113,7 +119,7 @@ public class BuildingClick : MonoBehaviour
         //outline
         //outline.enabled = false;
         //outline.OutlineColor = outlineColor;
-        toggleOutline(false);
+        if(!isTargeted) toggleOutline(false);
     }
 
 
@@ -124,7 +130,9 @@ public class BuildingClick : MonoBehaviour
 
     public void setOutlineColor(Color newColor)
     {
+        Debug.Log("Changed color to " + newColor.ToString());
         outlineColor = newColor;
+        outline.OutlineColor = outlineColor;
     }
 
     public bool IsPointerOverUIObject()
