@@ -578,7 +578,7 @@ public class Gov_Player : MonoBehaviour
         //Go through each target list and animate
 
         //Bomb
-        for(int i = 0; i < targetBuildings_0.Count; i++)
+        for (int i = 0; i < targetBuildings_0.Count; i++)
         {
             //Bomb animation
             GameObject toBomb = targetBuildings_0[i].gameObject;
@@ -596,11 +596,12 @@ public class Gov_Player : MonoBehaviour
         }
 
         //Drone
-        for(int i = 0; i < targetBuildings_1.Count; i++)
+        for (int i = 0; i < targetBuildings_1.Count; i++)
         {
             //Drone animation
             GameObject toDrone = targetBuildings_1[i].gameObject;
-            //GameObject drone = Instantiate(dronePrefab, toDrone.transform.position, Quaternion.identity);
+            GameObject drone = Instantiate(dronePrefab, toDrone.transform.position, Quaternion.identity);
+            drone.GetComponent<Drone>().setTarget(toDrone.transform);
         }
 
         //Protect
