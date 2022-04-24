@@ -50,42 +50,47 @@ public class BuildingClick : MonoBehaviour
         {
             if(gm.isGovTurn() && (govPlayer.getState() == Gov_Player.playerStates.Targeting)) //actively targeting
             {
-                int selectedAction = govPlayer.getSelectedAction();
-
-                //Just highlight, add to targetting
-                if (!isClicked) //add to target
+                //Check Building state
+                if(building.getState() == Building.buildingStates.Normal)
                 {
-                    if (govPlayer.totalTargets(selectedAction) >= govPlayer.getInventoryAmount(selectedAction))
+                    int selectedAction = govPlayer.getSelectedAction();
+
+                    //Just highlight, add to targetting
+                    if (!isClicked) //add to target
                     {
-                        Debug.Log("Max amount of targets for this inventory reached (" + selectedAction + ")");
+                        if (govPlayer.totalTargets(selectedAction) >= govPlayer.getInventoryAmount(selectedAction))
+                        {
+                            Debug.Log("Max amount of targets for this inventory reached (" + selectedAction + ")");
+                        }
+                        else
+                        {
+                            isClicked = true;
+                            isTargeted = true;
+
+                            //Outline
+                            toggleOutline(true);
+                            Debug.Log("Target Color");
+                            setOutlineColor(ColorPallette.instance.getColor("targetColor"));
+                            govPlayer.addTarget(building, selectedAction);
+                        }
                     }
-                    else
+                    else //remove target
                     {
-                        isClicked = true;
-                        isTargeted = true;
+                        isClicked = false;
+                        isTargeted = false;
 
-                        //Outline
-                        toggleOutline(true);
-                        Debug.Log("Target Color");
-                        setOutlineColor(ColorPallette.instance.getColor("targetColor"));
-                        govPlayer.addTarget(building, selectedAction);
-                    }                  
+                        toggleOutline(false);
+                        govPlayer.removeTarget(building, selectedAction);
+                    }
+
+                    //Header
+                    govInterface.triggerHeaderPerm("Select your targets. Targets selected: " +
+                        govPlayer.totalTargets(selectedAction));
+
+                    //Interface
+                    govPlayer.updateTargetCounter();
                 }
-                else //remove target
-                {
-                    isClicked = false;
-                    isTargeted = false;
-
-                    toggleOutline(false);
-                    govPlayer.removeTarget(building, selectedAction);
-                }
-
-                //Header
-                govInterface.triggerHeaderPerm("Select your targets. Targets selected: " +
-                    govPlayer.totalTargets(selectedAction));
-
-                //Interface
-                govPlayer.updateTargetCounter();
+                else { govInterface.triggerHeader("Unable to target building."); }
             }
             else
             {
@@ -122,6 +127,13 @@ public class BuildingClick : MonoBehaviour
         if(!isTargeted) toggleOutline(false);
     }
 
+    public void resetTarget()
+    {
+        isTargeted = false;
+        toggleOutline(false);
+        setOutlineColor(ColorPallette.instance.getColor("neutral"));
+    }
+
 
     public void toggleOutline(bool val)
     {
@@ -130,7 +142,6 @@ public class BuildingClick : MonoBehaviour
 
     public void setOutlineColor(Color newColor)
     {
-        Debug.Log("Changed color to " + newColor.ToString());
         outlineColor = newColor;
         outline.OutlineColor = outlineColor;
     }

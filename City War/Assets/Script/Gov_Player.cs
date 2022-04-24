@@ -582,6 +582,7 @@ public class Gov_Player : MonoBehaviour
         {
             //Bomb animation
             GameObject toBomb = targetBuildings_0[i].gameObject;
+            toBomb.GetComponent<Building>().setState(Building.buildingStates.Bombed);
 
             int randomizedHeight = Random.Range(9, 12);
 
@@ -600,6 +601,8 @@ public class Gov_Player : MonoBehaviour
         {
             //Drone animation
             GameObject toDrone = targetBuildings_1[i].gameObject;
+            toDrone.GetComponent<Building>().setState(Building.buildingStates.Droning);
+
             GameObject drone = Instantiate(dronePrefab, toDrone.transform.position, Quaternion.identity);
             drone.GetComponent<Drone>().setTarget(toDrone.transform);
         }

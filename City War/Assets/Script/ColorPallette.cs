@@ -44,7 +44,6 @@ public class ColorPallette : MonoBehaviour
                 return terLight;
 
             case "targetcolor":
-                Debug.Log("Target Color returned.");
                 return targetColor;
 
             case "neutral":

@@ -136,6 +136,9 @@ public class GameManager : MonoBehaviour
         govInterface.triggerHeaderPerm("The day is ending...");
         Debug.Log("Animations will play here.");
 
+        BuildingClick[] buildings = FindObjectsOfType<BuildingClick>();
+        for(int i = 0; i < buildings.Length; i++) { buildings[i].resetTarget(); }
+
         if (singlePlayer)
         {
             if (spIsGov)
