@@ -74,6 +74,7 @@ public class Gov_Player : MonoBehaviour
     #region targetting
     [Header("Animation Prefabs")]
     public GameObject bombPrefab;
+    public GameObject dronePrefab;
     List<Building> targetBuildings_0 = new List<Building>();
     List<Building> targetBuildings_1 = new List<Building>();
     List<Building> targetBuildings_2 = new List<Building>();
